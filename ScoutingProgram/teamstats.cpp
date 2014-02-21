@@ -154,15 +154,6 @@ void TeamStats::refresh()
     TeamTable->setHorizontalHeaderItem(16, new QTableWidgetItem("Power Rating"));
     TeamTable->setHorizontalHeaderItem(17, new QTableWidgetItem("Power Levels"));
 
-    if (Teams[i].wins + Teams[i].losses)
-    {
-        temp2 = Teams[i].wins + Teams[i].losses;
-    }
-    else
-    {
-        temp2 = 1;
-    }
-
     for(int i = 0; i < iTeams; i++)
     {
         TeamTable->setItem(i, 0, new QTableWidgetItem(Teams[i].name));
