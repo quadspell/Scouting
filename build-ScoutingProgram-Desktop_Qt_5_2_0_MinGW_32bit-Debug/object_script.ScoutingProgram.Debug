@@ -1,0 +1,16 @@
+INPUT(
+./debug\main.o
+./debug\startup.o
+./debug\overloads.o
+./debug\eventeditor.o
+./debug\teameditor.o
+./debug\teamstats.o
+./debug\schedule.o
+./debug\scoutingmode.o
+./debug\moc_startup.o
+./debug\moc_eventeditor.o
+./debug\moc_teameditor.o
+./debug\moc_teamstats.o
+./debug\moc_schedule.o
+./debug\moc_scoutingmode.o
+);

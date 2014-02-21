@@ -1,0 +1,16 @@
+INPUT(
+./release\main.o
+./release\startup.o
+./release\overloads.o
+./release\eventeditor.o
+./release\teameditor.o
+./release\teamstats.o
+./release\schedule.o
+./release\scoutingmode.o
+./release\moc_startup.o
+./release\moc_eventeditor.o
+./release\moc_teameditor.o
+./release\moc_teamstats.o
+./release\moc_schedule.o
+./release\moc_scoutingmode.o
+);
