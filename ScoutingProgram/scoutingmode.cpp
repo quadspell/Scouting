@@ -7,6 +7,7 @@ ScoutingMode::ScoutingMode(QString eventName)
     qDebug() << "ScoutingMode: Initianlizing";
 
     EventName = eventName;
+    roundNum = 1;
 
     createMenu();
     createScoutingGroupBox();
@@ -35,14 +36,14 @@ void ScoutingMode::createScoutingGroupBox()
 {
     qDebug() << "ScoutingMode: creating GroupBox";
 
-    scoutingBox = new QGroupBox(tr("EventName"));
+    scoutingBox = new QGroupBox(EventName);
 
-    redDisp1 = new QLabel(EventName);
-    redDisp2 = new QLabel(tr("redTeam2"));
-    redDisp3 = new QLabel(tr("redTeam3"));
-    blueDisp1 = new QLabel(tr("blueTeam1"));
-    blueDisp2 = new QLabel(tr("blueTeam2"));
-    blueDisp3 = new QLabel(tr("blueTeam3"));
+    redDisp1 = new QLabel(Matches[roundNum].red1);
+    redDisp2 = new QLabel(Matches[roundNum].red2);
+    redDisp3 = new QLabel(Matches[roundNum].red3);
+    blueDisp1 = new QLabel(Matches[roundNum].blue1);
+    blueDisp2 = new QLabel(Matches[roundNum].blue2);
+    blueDisp3 = new QLabel(Matches[roundNum].blue3);
 
     redInfo1 = new QLineEdit();
     redInfo2 = new QLineEdit();
@@ -121,19 +122,9 @@ void ScoutingMode::advanceMatch()
     qDebug() << "Round" << roundNum << "completed";
 
     //saveData();
-    //updateTeamStats();
     roundNum ++;
     qDebug() << "Round" << roundNum << "started";
-
 }
-
-void ScoutingMode::updateTeamStats()
-{
-    qDebug() << "ScoutingMode: Updating Team Stats";
-
-    qDebug() << "ScoutingMode: Team Stats Updated";
-}
-
 void ScoutingMode::loadData()
 {
     qDebug() << "Schedule: Loading Data";
@@ -332,4 +323,10 @@ void ScoutingMode::enterInfo()
             qDebug() << "penalty points added";
             break;
     }
+    redInfo1->clear();
+    redInfo2->clear();
+    redInfo3->clear();
+    blueInfo1->clear();
+    blueInfo2->clear();
+    blueInfo3->clear();
 }

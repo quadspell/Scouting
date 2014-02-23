@@ -35,9 +35,10 @@ private:
     QPushButton *Done;
     QString EventName;
 
-    Team *RedAlliance[200][3];
-    Team *BlueAlliance[200][3];
+    //Team *RedAlliance[200][3];
+    //Team *BlueAlliance[200][3];
     Team Teams[100];
+    Match Matches[200];
 
     int eventSize;
     int iTeams;

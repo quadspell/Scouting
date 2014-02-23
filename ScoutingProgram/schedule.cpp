@@ -12,6 +12,8 @@ Schedule::Schedule(QString eventName)
 
     EventName = eventName;
 
+    roundNum = 1;
+
     createScheduleGroupBox();
     createMenu();
 
@@ -107,7 +109,7 @@ void Schedule::updateRoundInfo()
 {
     for(int i = 0; i <= 250; i++)
     {
-        selectRound->insertItem(i, QString::number(i));
+        selectRound->insertItem(i, QString::number(i + 1));
     }
 }
 
@@ -126,11 +128,15 @@ void Schedule::populateComboBoxes()
 
 void Schedule::roundChanged()
 {
+    Matches[roundNum].red1 = redTeam1->currentText().toInt();
+    Matches[roundNum].red2 = redTeam2->currentText().toInt();
+    Matches[roundNum].red3 = redTeam3->currentText().toInt();
+    Matches[roundNum].blue1 = blueTeam1->currentText().toInt();
+    Matches[roundNum].blue2 = blueTeam2->currentText().toInt();
+    Matches[roundNum].blue3 = blueTeam3->currentText().toInt();
+
     roundNum = selectRound->currentText().toInt();
     qDebug() << "round changed to" << roundNum;
-
-    //saveData();
-    //loadData();
 }
 
 void Schedule::loadData()

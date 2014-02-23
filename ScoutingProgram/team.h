@@ -10,4 +10,9 @@ struct Team
     double winPercent, losePercent, trussPercent, catchPercent, shotPercent;
 };
 
+struct Match
+{
+   QString red1, red2, red3, blue1, blue2, blue3;
+};
+
 #endif // TEAM_H

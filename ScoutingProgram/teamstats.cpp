@@ -65,7 +65,7 @@ void TeamStats::CreateTeamStatsGroupBox()
 void TeamStats::InitTeamTable()
 {
     qDebug() << "Team Stats: Initializing Table";
-    TeamTable = new QTableWidget(iTeams, 18);
+    TeamTable = new QTableWidget(iTeams, 16);
     TeamTable->setHorizontalHeaderItem(0, new QTableWidgetItem("Team Number"));
     TeamTable->setHorizontalHeaderItem(1, new QTableWidgetItem("Total Score"));
     TeamTable->setHorizontalHeaderItem(2, new QTableWidgetItem("Wins"));
@@ -82,8 +82,6 @@ void TeamStats::InitTeamTable()
     TeamTable->setHorizontalHeaderItem(13, new QTableWidgetItem("Penalty Points"));
     TeamTable->setHorizontalHeaderItem(14, new QTableWidgetItem("Trench Attempts"));
     TeamTable->setHorizontalHeaderItem(15, new QTableWidgetItem("Trench Percent"));
-    TeamTable->setHorizontalHeaderItem(16, new QTableWidgetItem("Power Rating"));
-    TeamTable->setHorizontalHeaderItem(17, new QTableWidgetItem("Power Level"));
     qDebug() << "Team Stats: Table Initialized";
 }
 
@@ -151,8 +149,6 @@ void TeamStats::refresh()
     TeamTable->setHorizontalHeaderItem(13, new QTableWidgetItem("Penalty Points"));
     TeamTable->setHorizontalHeaderItem(14, new QTableWidgetItem("Trench Attempts"));
     TeamTable->setHorizontalHeaderItem(15, new QTableWidgetItem("Trench Percent"));
-    TeamTable->setHorizontalHeaderItem(16, new QTableWidgetItem("Power Rating"));
-    TeamTable->setHorizontalHeaderItem(17, new QTableWidgetItem("Power Levels"));
 
     for(int i = 0; i < iTeams; i++)
     {
@@ -172,11 +168,7 @@ void TeamStats::refresh()
         TeamTable->setItem(i, 13, new QTableWidgetItem(Teams[i].penaltyPoints));
         TeamTable->setItem(i, 14, new QTableWidgetItem(Teams[i].trussAttempts));
         TeamTable->setItem(i, 15, new QTableWidgetItem(Teams[i].trussPercent));
-        temp1 = Teams[i].wins - Teams[i].losses + 5 * (Teams[i].assists) + 12 * (Teams[i].trussThrows) - 2 * (Teams[i].trussAttempts) - 5 * (Teams[i].penaltyPoints) + 3 * (Teams[i].blocks) + 13 * (Teams[i].shotsMade) - 5 * (Teams[i].shotAttempts) + 6 * (Teams[i].catches) - Teams[i].catchAttempts;
-        TeamTable->setItem(i, 16, new QTableWidgetItem(temp1));
-        temp1 = Teams[i].winPercent + 5 * (Teams[i].catchPercent) + 10 * (Teams[i].trussPercent) + 13 * (Teams[i].shotPercent) + (7 * (Teams[i].assists)+ 3 * (Teams[i].blocks) - 10 * (Teams[i].penaltyPoints)) / temp2;
-        TeamTable->setItem(i, 17, new QTableWidgetItem(temp1));
-    }
+       }
 }
 
 

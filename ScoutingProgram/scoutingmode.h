@@ -32,7 +32,6 @@ private:
     void createMenu();
     void saveData(); // Saves changes to all rounds
     void loadData(); // Loads all round data
-    void updateTeamStats();
     void populateCombo();
 
     QAction *exitAction;
@@ -47,6 +46,8 @@ private:
 
     int iTeams;
     int roundNum;
+
+    Match Matches[200];
 
     Team *redTeam1, *redTeam2, *redTeam3, *blueTeam1, *blueTeam2, *blueTeam3, Teams[];
 
